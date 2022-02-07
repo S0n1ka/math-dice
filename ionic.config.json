@@ -1,0 +1,7 @@
+{
+  "name": "math-dice",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
