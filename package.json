@@ -1,11 +1,12 @@
 {
   "name": "math-dice",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "William Dobson",
+  "homepage": "",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "ionic-serve": "ionic serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,7 +31,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.1",
+    "@angular-devkit/build-angular": "^13.2.3",
     "@angular-eslint/builder": "~13.0.1",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
