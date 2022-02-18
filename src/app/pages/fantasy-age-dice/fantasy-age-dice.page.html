@@ -3,21 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Math Dice</ion-title>
+    <ion-title>Fantasy Age Dice</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed style="height: 100%" (click)="roll()">
     <ion-row class="ion-justify-content-center">
-      <ion-col size="4" *ngFor="let value of sixSidedDice">
+       <ion-col size="3" *ngFor="let value of sixSidedDice">
         <app-six-sided [value]="value"></app-six-sided>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="6" *ngFor="let value of twelveSidedDice">
-        <app-twelve-sided [value]="value"></app-twelve-sided>
-      </ion-col>
-    </ion-row>
   </ion-grid>
+
 </ion-content>

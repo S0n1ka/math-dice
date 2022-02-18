@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'fantasy-age-dice',
+    loadChildren: () => import('./pages/fantasy-age-dice/fantasy-age-dice.module').then( m => m.FantasyAgeDicePageModule)
+  },
 ];
 
 @NgModule({

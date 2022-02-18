@@ -1,11 +1,58 @@
 .container {
-  background-color: var(--ion-color-success);
-  border: #999 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.scene {
+  width: 150px;
+  height: 150px;
+  perspective: 400px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-75px);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.cube__face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--ion-color-medium);
   border-radius: 30%;
-  font-size: 15vw;
+  line-height: 150px;
+  font-size: 80px;
   font-weight: bold;
+  background: var(--ion-color-success);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+
+  &--front {
+    transform: rotateY(  0deg) translateZ(75px);
+  }
+  &--right  {
+    transform: rotateY( 90deg) translateZ(75px);
+  }
+  &--back   {
+    transform: rotateY(180deg) translateZ(75px);
+  }
+  &--left   {
+    transform: rotateY(-90deg) translateZ(75px);
+  }
+  &--top    {
+    transform: rotateX( 90deg) translateZ(75px);
+  }
+  &--bottom {
+    transform: rotateX(-90deg) translateZ(75px);
+  }
 }
