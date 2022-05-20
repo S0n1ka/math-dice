@@ -28,35 +28,50 @@ export class SixSidedComponent implements OnInit, AfterViewInit {
 
   playThreeDAnimation() {
     this.container = this.canvas.nativeElement;
-    const animate = () => {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.05;
-      cube.rotation.y += 0.05;
-      renderer.render(scene, camera);
-    };
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(100, 100);
     this.container.appendChild(renderer.domElement);
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      1,
+      1,
+      500
+      );
+    camera.position.set(0,0,100);
+    camera.lookAt(0,0,0);
+    const scene = new THREE.Scene();
 
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial(
-      { color: 0x00ff00 }
-    );
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    // create a blue LineBasicMaterial
+    const material = new THREE.LineBasicMaterial({color: 0x0000ff});
+    const points = [];
+    points.push( new THREE.Vector3(10,10,0));
+    points.push( new THREE.Vector3(10,-10,0));
+    points.push( new THREE.Vector3(-10,-10,0));
+    points.push( new THREE.Vector3(-10,10,0));
+    points.push( new THREE.Vector3(10,10,0));
 
-    camera.position.z = 5;
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const line = new THREE.Line(geometry,material);
+    scene.add(line);
+    renderer.render(scene,camera);
 
-    animate();
+    // Create a green cube
+    // const geometry = new THREE.BoxGeometry();
+    // const material = new THREE.MeshBasicMaterial(
+    //   { color: 0x00ff00 }
+    // );
+    // const cube = new THREE.Mesh(geometry, material);
+    // scene.add(cube);
+
+    // camera.position.z = 5;
+    // const animate = () => {
+    //   requestAnimationFrame(animate);
+    //   line.rotation.x += 0.05;
+    //   line.rotation.y += 0.05;
+    //   renderer.render(scene, camera);
+    // };
+    // animate();
   }
 
   playAnimation() {
